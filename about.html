@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About</title>
+  <style>
+    :root {
+      --ink: #111827;
+      --muted: #607083;
+      --paper: #fffaf2;
+      --rose: #ff5f7e;
+      --cyan: #10b7c4;
+      --lime: #b6df45;
+      --amber: #f6b13d;
+      --indigo: #5b67f1;
+      --line: rgba(17, 24, 39, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(255, 95, 126, 0.22), transparent 30%),
+        radial-gradient(circle at 82% 12%, rgba(16, 183, 196, 0.24), transparent 30%),
+        linear-gradient(145deg, #fffaf2 0%, #eefaff 48%, #f5f0ff 100%);
+      overflow-x: hidden;
+    }
+
+    .page {
+      position: relative;
+      min-height: 100vh;
+      padding: 34px;
+      isolation: isolate;
+    }
+
+    .page::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      background-image:
+        linear-gradient(rgba(17, 24, 39, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(17, 24, 39, 0.06) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 88%);
+    }
+
+    .glow {
+      position: fixed;
+      z-index: -2;
+      width: 52vw;
+      min-width: 420px;
+      height: 52vw;
+      min-height: 420px;
+      border-radius: 50%;
+      filter: blur(22px);
+      opacity: 0.55;
+      animation: pulse 8s ease-in-out infinite;
+    }
+
+    .glow.one {
+      top: -24%;
+      right: -18%;
+      background: conic-gradient(from 90deg, var(--rose), var(--cyan), var(--indigo), var(--rose));
+    }
+
+    .glow.two {
+      left: -22%;
+      bottom: -24%;
+      background: conic-gradient(from 200deg, var(--amber), var(--lime), var(--cyan), var(--amber));
+      animation-delay: -3s;
+    }
+
+    .wrap {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 34px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.66);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 16px 46px rgba(17, 24, 39, 0.10);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 950;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    .mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: white;
+      background: linear-gradient(135deg, var(--rose), var(--indigo));
+      box-shadow: 0 10px 24px rgba(91, 103, 241, 0.28);
+    }
+
+    .nav-link {
+      color: var(--muted);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.04fr 0.96fr;
+      gap: clamp(26px, 5vw, 72px);
+      align-items: center;
+      min-height: calc(100vh - 136px);
+      padding: clamp(24px, 5vw, 58px);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: 0 34px 100px rgba(17, 24, 39, 0.16);
+      backdrop-filter: blur(24px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 22px;
+      color: var(--cyan);
+      font-size: 0.78rem;
+      font-weight: 950;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 3px;
+      border-radius: 999px;
+      background: currentColor;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 700px;
+      font-size: clamp(3.4rem, 8vw, 7.7rem);
+      line-height: 0.88;
+      letter-spacing: 0;
+    }
+
+    h1 span {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--ink);
+      text-shadow: 7px 7px 0 rgba(182, 223, 69, 0.48);
+    }
+
+    .lead {
+      max-width: 620px;
+      margin: 30px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.7vw, 1.22rem);
+      line-height: 1.75;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 34px;
+      max-width: 590px;
+    }
+
+    .stat {
+      min-height: 92px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.62);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.83rem;
+      font-weight: 700;
+    }
+
+    .portrait {
+      position: relative;
+      min-height: 500px;
+      display: grid;
+      place-items: center;
+    }
+
+    .orbital {
+      position: absolute;
+      width: min(86%, 420px);
+      aspect-ratio: 1;
+      border: 2px solid rgba(17, 24, 39, 0.12);
+      border-radius: 50%;
+      animation: rotate 18s linear infinite;
+    }
+
+    .orbital::before,
+    .orbital::after {
+      content: "";
+      position: absolute;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--amber), var(--rose));
+      box-shadow: 0 16px 34px rgba(255, 95, 126, 0.24);
+    }
+
+    .orbital::before {
+      top: 8%;
+      left: 12%;
+    }
+
+    .orbital::after {
+      right: 5%;
+      bottom: 18%;
+      background: linear-gradient(135deg, var(--cyan), var(--indigo));
+    }
+
+    .profile {
+      position: relative;
+      width: min(78%, 360px);
+      aspect-ratio: 0.82;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.58)),
+        linear-gradient(135deg, rgba(255, 95, 126, 0.28), rgba(16, 183, 196, 0.26));
+      box-shadow: 0 34px 72px rgba(17, 24, 39, 0.18);
+      overflow: hidden;
+    }
+
+    .profile::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px dashed rgba(17, 24, 39, 0.20);
+      border-radius: 8px;
+    }
+
+    .profile-content {
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .hello {
+      position: absolute;
+      top: 12px;
+      left: 4px;
+      font-size: clamp(4.2rem, 11vw, 7rem);
+      font-weight: 950;
+      line-height: 0.84;
+      color: rgba(17, 24, 39, 0.08);
+    }
+
+    .profile h2 {
+      position: relative;
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 0.95;
+    }
+
+    .profile p {
+      position: relative;
+      margin: 16px 0 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .chip {
+      padding: 9px 12px;
+      border: 1px solid rgba(17, 24, 39, 0.14);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.74);
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(20px, -18px, 0) scale(1.04); }
+    }
+
+    @keyframes rotate {
+      to { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 860px) {
+      .page {
+        padding: 22px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .portrait {
+        order: -1;
+        min-height: 360px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero {
+        padding: 24px;
+      }
+
+      h1 span {
+        -webkit-text-stroke-width: 1px;
+        text-shadow: 5px 5px 0 rgba(182, 223, 69, 0.48);
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait {
+        min-height: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+
+    <div class="wrap">
+      <nav aria-label="Main navigation">
+        <a class="brand" href="index.html"><span class="mark">A</span><span>About Page</span></a>
+        <a class="nav-link" href="index.html">Back to Hello World</a>
+      </nav>
+
+      <section class="hero" aria-label="About this page">
+        <div class="copy">
+          <p class="eyebrow">A little introduction</p>
+          <h1>About <span>This Page</span></h1>
+          <p class="lead">
+            This is a bright, modern about page built as a single HTML file. It uses layered color, glassy surfaces, crisp spacing, and gentle motion to make a simple page feel polished and memorable.
+          </p>
+
+          <div class="stats" aria-label="Page highlights">
+            <div class="stat"><strong>01</strong><span>Single clean HTML file</span></div>
+            <div class="stat"><strong>02</strong><span>Fancy responsive layout</span></div>
+            <div class="stat"><strong>03</strong><span>Animated visual details</span></div>
+          </div>
+        </div>
+
+        <div class="portrait" aria-hidden="true">
+          <div class="orbital"></div>
+          <div class="profile">
+            <div class="profile-content">
+              <div class="hello">HELLO</div>
+              <h2>Creative, clean, and ready.</h2>
+              <p>A stylish starting point for a personal site, project page, or small portfolio.</p>
+              <div class="chips">
+                <span class="chip">Modern</span>
+                <span class="chip">Responsive</span>
+                <span class="chip">Fancy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
