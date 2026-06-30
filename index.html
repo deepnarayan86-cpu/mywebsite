@@ -125,6 +125,99 @@
     .feature-card h3, .project-card h3, .process-card h3 { margin: 24px 0 0; font-size: 1.35rem; }
     .feature-card p, .project-card p, .process-card p { margin: 12px 0 0; color: var(--muted); line-height: 1.68; }
 
+
+
+    .feature-card {
+      position: relative;
+      min-height: 285px;
+      overflow: hidden;
+      padding: 28px;
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    }
+
+    .feature-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.44)),
+        radial-gradient(circle at 18% 16%, rgba(255, 107, 95, 0.20), transparent 32%),
+        radial-gradient(circle at 88% 10%, rgba(17, 166, 154, 0.18), transparent 30%),
+        radial-gradient(circle at 70% 92%, rgba(124, 77, 255, 0.16), transparent 36%);
+      opacity: 0.92;
+    }
+
+    .feature-card::after {
+      content: "";
+      position: absolute;
+      right: -54px;
+      bottom: -54px;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: conic-gradient(from 120deg, rgba(255, 107, 95, 0.34), rgba(248, 189, 53, 0.32), rgba(17, 166, 154, 0.30), rgba(124, 77, 255, 0.30), rgba(255, 107, 95, 0.34));
+      opacity: 0.78;
+      transition: transform 220ms ease;
+    }
+
+    .feature-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .feature-card:hover {
+      border-color: rgba(124, 77, 255, 0.26);
+      box-shadow: 0 30px 76px rgba(16, 24, 33, 0.16);
+      transform: translateY(-8px);
+    }
+
+    .feature-card:hover::after {
+      transform: scale(1.16) rotate(18deg);
+    }
+
+    .feature-icon {
+      position: relative;
+      width: 58px;
+      height: 58px;
+      font-size: 1rem;
+      isolation: isolate;
+    }
+
+    .feature-icon::after {
+      content: "";
+      position: absolute;
+      inset: -7px;
+      z-index: -1;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(255, 107, 95, 0.22), rgba(17, 166, 154, 0.18), rgba(124, 77, 255, 0.20));
+    }
+
+    .feature-card h3 {
+      margin-top: 34px;
+      max-width: 260px;
+      font-size: clamp(1.45rem, 2.4vw, 2rem);
+      line-height: 1.02;
+    }
+
+    .feature-card p {
+      max-width: 315px;
+      font-size: 0.98rem;
+    }
+
+    .feature-card .shine {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(16, 24, 33, 0.12);
+      border-radius: 50%;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.42)),
+        linear-gradient(135deg, rgba(248, 189, 53, 0.28), rgba(17, 166, 154, 0.24));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85);
+    }
+
     .project-card { position: relative; min-height: 300px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
     .project-card.featured { min-height: 420px; grid-row: span 2; background: linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.54)), linear-gradient(135deg, rgba(255, 107, 95, 0.22), rgba(17, 166, 154, 0.18), rgba(124, 77, 255, 0.20)); }
     .project-card::before { content: ""; position: absolute; right: -70px; top: -70px; width: 190px; height: 190px; border-radius: 50%; background: conic-gradient(from 120deg, rgba(255, 107, 95, 0.44), rgba(17, 166, 154, 0.34), rgba(124, 77, 255, 0.38), rgba(255, 107, 95, 0.44)); opacity: 0.75; }
@@ -338,9 +431,9 @@
     <section class="section feature-band">
       <div class="section-heading"><h2>Everything feels sharper when design has purpose.</h2><p>These sections give the home page more depth, more content, and a full-width layout that feels like a real website.</p></div>
       <div class="features">
-        <article class="feature-card"><span class="feature-icon">01</span><h3>Bold First Impression</h3><p>Large typography, layered color, and a confident hero area help the page feel alive as soon as it opens.</p></article>
-        <article class="feature-card"><span class="feature-icon">02</span><h3>Full-Width Flow</h3><p>Content stretches across the viewport in clean bands, giving the website a complete and spacious rhythm.</p></article>
-        <article class="feature-card"><span class="feature-icon">03</span><h3>Polished Details</h3><p>Soft glass surfaces, animated visual notes, and balanced cards add style without making the page noisy.</p></article>
+        <article class="feature-card"><span class="shine"></span><span class="feature-icon">01</span><h3>Bold First Impression</h3><p>Large typography, layered color, and a confident hero area help the page feel alive as soon as it opens.</p></article>
+        <article class="feature-card"><span class="shine"></span><span class="feature-icon">02</span><h3>Full-Width Flow</h3><p>Content stretches across the viewport in clean bands, giving the website a complete and spacious rhythm.</p></article>
+        <article class="feature-card"><span class="shine"></span><span class="feature-icon">03</span><h3>Polished Details</h3><p>Soft glass surfaces, animated visual notes, and balanced cards add style without making the page noisy.</p></article>
       </div>
     </section>
 
