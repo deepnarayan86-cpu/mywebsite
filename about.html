@@ -3,22 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About</title>
+  <title>About | Deep Narayan</title>
   <style>
     :root {
-      --ink: #111827;
-      --muted: #607083;
-      --paper: #fffaf2;
-      --rose: #ff5f7e;
-      --cyan: #10b7c4;
-      --lime: #b6df45;
-      --amber: #f6b13d;
-      --indigo: #5b67f1;
-      --line: rgba(17, 24, 39, 0.14);
+      --ink: #101821;
+      --muted: #516172;
+      --coral: #ff6b5f;
+      --teal: #11a69a;
+      --gold: #f8bd35;
+      --blue: #2f80ed;
+      --plum: #7c4dff;
+      --leaf: #b6df45;
+      --shadow: rgba(16, 24, 33, 0.18);
+      --line: rgba(16, 24, 33, 0.14);
     }
 
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      background: #fff7e8;
     }
 
     body {
@@ -27,9 +33,10 @@
       color: var(--ink);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at 12% 18%, rgba(255, 95, 126, 0.22), transparent 30%),
-        radial-gradient(circle at 82% 12%, rgba(16, 183, 196, 0.24), transparent 30%),
-        linear-gradient(145deg, #fffaf2 0%, #eefaff 48%, #f5f0ff 100%);
+        radial-gradient(circle at 12% 12%, rgba(255, 107, 95, 0.22), transparent 30%),
+        radial-gradient(circle at 88% 15%, rgba(17, 166, 154, 0.24), transparent 30%),
+        radial-gradient(circle at 50% 92%, rgba(248, 189, 53, 0.28), transparent 35%),
+        linear-gradient(135deg, #fff8ec 0%, #edf9ff 46%, #f8f1ff 100%);
       overflow-x: hidden;
     }
 
@@ -197,96 +204,58 @@
       content: "";
       position: fixed;
       inset: 0;
-      z-index: -3;
+      z-index: -4;
       background-image:
-        linear-gradient(rgba(17, 24, 39, 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(17, 24, 39, 0.06) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: linear-gradient(to bottom, black, transparent 88%);
+        linear-gradient(rgba(16, 24, 33, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 24, 33, 0.06) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), transparent 90%);
     }
 
-    .glow {
+    .color-wash {
       position: fixed;
-      z-index: -2;
-      width: 52vw;
-      min-width: 420px;
-      height: 52vw;
-      min-height: 420px;
+      z-index: -3;
+      width: 56vw;
+      min-width: 430px;
+      height: 56vw;
+      min-height: 430px;
       border-radius: 50%;
-      filter: blur(22px);
-      opacity: 0.55;
-      animation: pulse 8s ease-in-out infinite;
+      filter: blur(18px);
+      opacity: 0.48;
+      animation: breathe 9s ease-in-out infinite;
     }
 
-    .glow.one {
-      top: -24%;
+    .color-wash.one {
+      top: -22%;
       right: -18%;
-      background: conic-gradient(from 90deg, var(--rose), var(--cyan), var(--indigo), var(--rose));
+      background: conic-gradient(from 90deg, var(--coral), var(--teal), var(--plum), var(--coral));
     }
 
-    .glow.two {
-      left: -22%;
+    .color-wash.two {
       bottom: -24%;
-      background: conic-gradient(from 200deg, var(--amber), var(--lime), var(--cyan), var(--amber));
-      animation-delay: -3s;
+      left: -20%;
+      background: conic-gradient(from 210deg, var(--gold), var(--leaf), var(--blue), var(--gold));
+      animation-delay: -4s;
     }
 
-    .wrap {
+    .about-shell {
       width: min(1120px, 100%);
       margin: 0 auto;
+      display: grid;
+      gap: 24px;
     }
 
-    nav {
-      display: flex;
+    .hero-panel {
+      display: grid;
+      grid-template-columns: 1.03fr 0.97fr;
+      gap: clamp(28px, 5vw, 70px);
       align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      margin-bottom: 34px;
-      padding: 14px 16px;
+      min-height: calc(100vh - 150px);
+      padding: clamp(28px, 5vw, 62px);
       border: 1px solid var(--line);
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.66);
-      backdrop-filter: blur(18px);
-      box-shadow: 0 16px 46px rgba(17, 24, 39, 0.10);
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 950;
-      text-decoration: none;
-      color: var(--ink);
-    }
-
-    .mark {
-      width: 36px;
-      height: 36px;
-      display: grid;
-      place-items: center;
-      border-radius: 8px;
-      color: white;
-      background: linear-gradient(135deg, var(--rose), var(--indigo));
-      box-shadow: 0 10px 24px rgba(91, 103, 241, 0.28);
-    }
-
-    .nav-link {
-      color: var(--muted);
-      font-weight: 800;
-      text-decoration: none;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1.04fr 0.96fr;
-      gap: clamp(26px, 5vw, 72px);
-      align-items: center;
-      min-height: calc(100vh - 136px);
-      padding: clamp(24px, 5vw, 58px);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.72);
-      box-shadow: 0 34px 100px rgba(17, 24, 39, 0.16);
+      background: rgba(255, 255, 255, 0.74);
+      box-shadow: 0 34px 100px var(--shadow);
       backdrop-filter: blur(24px);
     }
 
@@ -295,7 +264,7 @@
       align-items: center;
       gap: 10px;
       margin: 0 0 22px;
-      color: var(--cyan);
+      color: var(--teal);
       font-size: 0.78rem;
       font-weight: 950;
       letter-spacing: 0.14em;
@@ -312,9 +281,9 @@
 
     h1 {
       margin: 0;
-      max-width: 700px;
-      font-size: clamp(3.4rem, 8vw, 7.7rem);
-      line-height: 0.88;
+      max-width: 720px;
+      font-size: clamp(3.7rem, 8vw, 7.8rem);
+      line-height: 0.86;
       letter-spacing: 0;
     }
 
@@ -322,7 +291,7 @@
       display: block;
       color: transparent;
       -webkit-text-stroke: 2px var(--ink);
-      text-shadow: 7px 7px 0 rgba(182, 223, 69, 0.48);
+      text-shadow: 7px 7px 0 rgba(248, 189, 53, 0.52);
     }
 
     .lead {
@@ -333,152 +302,256 @@
       line-height: 1.75;
     }
 
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
       margin-top: 34px;
-      max-width: 590px;
     }
 
-    .stat {
-      min-height: 92px;
-      padding: 16px;
-      border: 1px solid var(--line);
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 22px;
+      border: 0;
       border-radius: 8px;
-      background: rgba(255, 255, 255, 0.62);
+      color: #ffffff;
+      font-weight: 950;
+      text-decoration: none;
+      background: linear-gradient(135deg, var(--coral), var(--plum));
+      box-shadow: 0 16px 30px rgba(124, 77, 255, 0.25);
+      transition: transform 180ms ease, box-shadow 180ms ease;
     }
 
-    .stat strong {
-      display: block;
-      font-size: 1.8rem;
-      line-height: 1;
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 22px 40px rgba(124, 77, 255, 0.30);
     }
 
-    .stat span {
-      display: block;
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 0.83rem;
-      font-weight: 700;
+    .button.secondary {
+      color: var(--ink);
+      background: #ffffff;
+      box-shadow: inset 0 0 0 1px rgba(16, 24, 33, 0.16), 0 12px 24px rgba(16, 24, 33, 0.08);
     }
 
-    .portrait {
+    .visual-card {
       position: relative;
-      min-height: 500px;
+      min-height: 510px;
       display: grid;
       place-items: center;
     }
 
-    .orbital {
-      position: absolute;
-      width: min(86%, 420px);
-      aspect-ratio: 1;
-      border: 2px solid rgba(17, 24, 39, 0.12);
-      border-radius: 50%;
-      animation: rotate 18s linear infinite;
-    }
-
-    .orbital::before,
-    .orbital::after {
-      content: "";
-      position: absolute;
-      width: 34px;
-      height: 34px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, var(--amber), var(--rose));
-      box-shadow: 0 16px 34px rgba(255, 95, 126, 0.24);
-    }
-
-    .orbital::before {
-      top: 8%;
-      left: 12%;
-    }
-
-    .orbital::after {
-      right: 5%;
-      bottom: 18%;
-      background: linear-gradient(135deg, var(--cyan), var(--indigo));
-    }
-
-    .profile {
+    .portrait-card {
       position: relative;
-      width: min(78%, 360px);
+      width: min(82%, 380px);
       aspect-ratio: 0.82;
-      padding: 24px;
+      padding: 26px;
       border: 1px solid var(--line);
       border-radius: 8px;
       background:
-        linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.58)),
-        linear-gradient(135deg, rgba(255, 95, 126, 0.28), rgba(16, 183, 196, 0.26));
-      box-shadow: 0 34px 72px rgba(17, 24, 39, 0.18);
+        linear-gradient(155deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.58)),
+        linear-gradient(135deg, rgba(255, 107, 95, 0.26), rgba(17, 166, 154, 0.26));
+      box-shadow: 0 34px 76px rgba(16, 24, 33, 0.18);
       overflow: hidden;
     }
 
-    .profile::before {
+    .portrait-card::before {
       content: "";
       position: absolute;
-      inset: 18px;
-      border: 1px dashed rgba(17, 24, 39, 0.20);
+      inset: 20px;
+      border: 1px dashed rgba(16, 24, 33, 0.22);
       border-radius: 8px;
     }
 
-    .profile-content {
+    .portrait-card::after {
+      content: "DN";
+      position: absolute;
+      top: 20px;
+      left: 22px;
+      color: rgba(16, 24, 33, 0.07);
+      font-size: clamp(5rem, 10vw, 7.5rem);
+      font-weight: 950;
+      line-height: 0.85;
+    }
+
+    .portrait-content {
       position: relative;
+      z-index: 1;
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
     }
 
-    .hello {
-      position: absolute;
-      top: 12px;
-      left: 4px;
-      font-size: clamp(4.2rem, 11vw, 7rem);
-      font-weight: 950;
-      line-height: 0.84;
-      color: rgba(17, 24, 39, 0.08);
-    }
-
-    .profile h2 {
-      position: relative;
+    .portrait-content h2 {
       margin: 0;
-      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-size: clamp(2rem, 4vw, 3.25rem);
       line-height: 0.95;
     }
 
-    .profile p {
-      position: relative;
+    .portrait-content p {
       margin: 16px 0 0;
       color: var(--muted);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
-    .chips {
+    .floating-note {
+      position: absolute;
+      width: 150px;
+      padding: 14px;
+      border: 1px solid rgba(16, 24, 33, 0.12);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 18px 42px rgba(16, 24, 33, 0.12);
+      backdrop-filter: blur(16px);
+      animation: lift 6s ease-in-out infinite;
+    }
+
+    .floating-note strong,
+    .floating-note span {
+      display: block;
+    }
+
+    .floating-note span {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+
+    .floating-note.one {
+      top: 8%;
+      left: 2%;
+    }
+
+    .floating-note.two {
+      right: 0;
+      bottom: 11%;
+      animation-delay: -2.5s;
+    }
+
+    .stats-grid,
+    .story-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stat,
+    .story-card,
+    .skill-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.70);
+      box-shadow: 0 20px 58px rgba(16, 24, 33, 0.10);
+      backdrop-filter: blur(18px);
+    }
+
+    .stat {
+      min-height: 128px;
+      padding: 20px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 2.35rem;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 800;
+      line-height: 1.4;
+    }
+
+    .story-grid {
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: 34px;
+    }
+
+    .story-card,
+    .skill-card {
+      padding: clamp(22px, 3vw, 30px);
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      line-height: 1.05;
+    }
+
+    .story-card p,
+    .skill-card p {
+      margin: 18px 0 0;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 13px;
+      align-items: start;
+    }
+
+    .dot {
+      width: 14px;
+      height: 14px;
+      margin-top: 5px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--coral), var(--teal));
+      box-shadow: 0 0 0 6px rgba(17, 166, 154, 0.12);
+    }
+
+    .timeline-item strong,
+    .timeline-item span {
+      display: block;
+    }
+
+    .timeline-item span {
+      margin-top: 5px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .skill-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 24px;
     }
 
-    .chip {
-      padding: 9px 12px;
-      border: 1px solid rgba(17, 24, 39, 0.14);
+    .skill-tags span {
+      padding: 10px 13px;
+      border: 1px solid rgba(16, 24, 33, 0.12);
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.74);
-      color: var(--ink);
-      font-size: 0.82rem;
-      font-weight: 850;
+      background: rgba(255, 255, 255, 0.76);
+      font-size: 0.86rem;
+      font-weight: 900;
     }
 
-    @keyframes pulse {
+    @keyframes breathe {
       0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-      50% { transform: translate3d(20px, -18px, 0) scale(1.04); }
+      50% { transform: translate3d(22px, -18px, 0) scale(1.04); }
     }
 
-    @keyframes rotate {
-      to { transform: rotate(360deg); }
+    @keyframes lift {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-16px) rotate(2deg); }
     }
 
     @media (max-width: 860px) {
@@ -492,19 +565,26 @@
         padding: 12px 22px;
       }
 
-      .hero {
+      .hero-panel,
+      .story-grid {
         grid-template-columns: 1fr;
+      }
+
+      .hero-panel {
         min-height: auto;
       }
 
-      .portrait {
+      .visual-card {
         order: -1;
-        min-height: 360px;
+        min-height: 390px;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
     @media (max-width: 560px) {
-
       .site-header {
         align-items: stretch;
         flex-direction: column;
@@ -520,32 +600,39 @@
         min-height: 40px;
         padding: 0 10px;
       }
-      nav {
-        align-items: flex-start;
-        flex-direction: column;
-      }
 
-      .hero {
+      .hero-panel {
         padding: 24px;
       }
 
       h1 span {
         -webkit-text-stroke-width: 1px;
-        text-shadow: 5px 5px 0 rgba(182, 223, 69, 0.48);
+        text-shadow: 5px 5px 0 rgba(248, 189, 53, 0.52);
       }
 
-      .stats {
+      .actions,
+      .stats-grid {
         grid-template-columns: 1fr;
       }
 
-      .portrait {
+      .button {
+        width: 100%;
+      }
+
+      .floating-note {
+        display: none;
+      }
+
+      .visual-card {
         min-height: 300px;
       }
     }
   </style>
 </head>
 <body>
-  <main class="page">
+  <main class="page" aria-label="About Deep Narayan">
+    <div class="color-wash one"></div>
+    <div class="color-wash two"></div>
 
     <header class="site-header" aria-label="Site header">
       <a class="logo" href="index.html" aria-label="Go to home page">
@@ -554,45 +641,71 @@
       </a>
       <nav class="main-nav" aria-label="Main navigation">
         <a href="index.html">Home</a>
-        <a class="active" aria-current="page" href="about.html">About</a>
+        <a class="active" href="about.html" aria-current="page">About</a>
         <a href="contact.html">Contact</a>
       </nav>
     </header>
-    <div class="glow one"></div>
-    <div class="glow two"></div>
 
-    <div class="wrap">
-
-      <section class="hero" aria-label="About this page">
-        <div class="copy">
-          <p class="eyebrow">A little introduction</p>
-          <h1>About <span>This Page</span></h1>
+    <div class="about-shell">
+      <section class="hero-panel">
+        <div class="about-copy">
+          <p class="eyebrow">About the creator</p>
+          <h1>Designing <span>Better Webs</span></h1>
           <p class="lead">
-            This is a bright, modern about page built as a single HTML file. It uses layered color, glassy surfaces, crisp spacing, and gentle motion to make a simple page feel polished and memorable.
+            I am Deep Narayan, building clean and colorful web pages that feel modern, fast, and easy to explore. This space is shaped around bold visuals, smooth details, and simple content that makes every page feel alive.
           </p>
-
-          <div class="stats" aria-label="Page highlights">
-            <div class="stat"><strong>01</strong><span>Single clean HTML file</span></div>
-            <div class="stat"><strong>02</strong><span>Fancy responsive layout</span></div>
-            <div class="stat"><strong>03</strong><span>Animated visual details</span></div>
+          <div class="actions">
+            <a class="button" href="contact.html">Start a Project</a>
+            <a class="button secondary" href="index.html">View Home</a>
           </div>
         </div>
 
-        <div class="portrait" aria-hidden="true">
-          <div class="orbital"></div>
-          <div class="profile">
-            <div class="profile-content">
-              <div class="hello">HELLO</div>
-              <h2>Creative, clean, and ready.</h2>
-              <p>A stylish starting point for a personal site, project page, or small portfolio.</p>
-              <div class="chips">
-                <span class="chip">Modern</span>
-                <span class="chip">Responsive</span>
-                <span class="chip">Fancy</span>
-              </div>
+        <div class="visual-card" aria-hidden="true">
+          <div class="floating-note one"><strong>Creative</strong><span>Layouts with personality.</span></div>
+          <div class="floating-note two"><strong>Polished</strong><span>Details that feel finished.</span></div>
+          <div class="portrait-card">
+            <div class="portrait-content">
+              <h2>Fresh ideas, sharp pages.</h2>
+              <p>Focused on friendly design, readable content, and memorable first impressions.</p>
             </div>
           </div>
         </div>
+      </section>
+
+      <section class="stats-grid" aria-label="Highlights">
+        <div class="stat"><strong>01</strong><span>Responsive pages for every screen</span></div>
+        <div class="stat"><strong>02</strong><span>Fancy visual details without clutter</span></div>
+        <div class="stat"><strong>03</strong><span>Clear navigation and page flow</span></div>
+        <div class="stat"><strong>04</strong><span>Modern HTML and CSS styling</span></div>
+      </section>
+
+      <section class="story-grid">
+        <article class="story-card">
+          <h2 class="section-title">My Story</h2>
+          <p>
+            I enjoy turning simple ideas into attractive web experiences. A basic page can still feel premium when the spacing, colors, motion, and content all work together.
+          </p>
+          <div class="timeline">
+            <div class="timeline-item"><span class="dot"></span><div><strong>Discover</strong><span>Understand the purpose of the page and what visitors should notice first.</span></div></div>
+            <div class="timeline-item"><span class="dot"></span><div><strong>Design</strong><span>Shape the layout with bold typography, balanced colors, and clean sections.</span></div></div>
+            <div class="timeline-item"><span class="dot"></span><div><strong>Polish</strong><span>Add responsive behavior and subtle animation so the page feels complete.</span></div></div>
+          </div>
+        </article>
+
+        <article class="skill-card">
+          <h2 class="section-title">What I Like Building</h2>
+          <p>
+            Pages that are simple to use but still have character: personal websites, landing pages, portfolios, contact sections, and polished starter sites.
+          </p>
+          <div class="skill-tags" aria-label="Skills and interests">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>Responsive Design</span>
+            <span>Visual Polish</span>
+            <span>Navigation</span>
+            <span>Creative Layouts</span>
+          </div>
+        </article>
       </section>
     </div>
   </main>
