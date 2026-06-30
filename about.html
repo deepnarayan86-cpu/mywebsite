@@ -546,6 +546,119 @@
       font-weight: 900;
     }
 
+    .site-footer {
+      position: relative;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      margin-right: calc(50% - 50vw);
+      padding: clamp(36px, 6vw, 58px) max(24px, calc((100vw - 1160px) / 2 + 24px));
+      overflow: hidden;
+      border-top: 1px solid rgba(16, 24, 33, 0.12);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.58)),
+        linear-gradient(135deg, rgba(255, 107, 95, 0.18), rgba(17, 166, 154, 0.18), rgba(124, 77, 255, 0.16));
+      backdrop-filter: blur(20px);
+    }
+
+    .site-footer::before {
+      content: "";
+      position: absolute;
+      top: -90px;
+      right: max(24px, calc((100vw - 1160px) / 2 + 24px));
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: conic-gradient(from 120deg, rgba(255, 107, 95, 0.36), rgba(17, 166, 154, 0.30), rgba(124, 77, 255, 0.34), rgba(255, 107, 95, 0.36));
+      opacity: 0.82;
+    }
+
+    .footer-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: end;
+    }
+
+    .footer-brand {
+      max-width: 560px;
+    }
+
+    .footer-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 16px;
+      color: var(--teal);
+      font-size: 0.76rem;
+      font-weight: 950;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .footer-kicker::before {
+      content: "";
+      width: 30px;
+      height: 3px;
+      border-radius: 999px;
+      background: currentColor;
+    }
+
+    .footer-brand h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 4rem);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .footer-brand p {
+      margin: 18px 0 0;
+      color: var(--muted);
+      line-height: 1.72;
+    }
+
+    .footer-panel {
+      display: grid;
+      gap: 16px;
+      justify-items: end;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 15px;
+      border: 1px solid rgba(16, 24, 33, 0.12);
+      border-radius: 999px;
+      color: var(--ink);
+      font-weight: 950;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.68);
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .footer-links a:hover,
+    .footer-links a.active {
+      background: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .footer-note {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 800;
+      text-align: right;
+    }
+
     @keyframes breathe {
       0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
       50% { transform: translate3d(22px, -18px, 0) scale(1.04); }
@@ -710,6 +823,25 @@
         </article>
       </section>
     </div>
+  
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <p class="footer-kicker">Deep Narayan Creative Web</p>
+          <h2>Bold pages, smooth links, polished endings.</h2>
+          <p>A fancy little website experience with a connected Home, About, and Contact flow.</p>
+        </div>
+        <div class="footer-panel">
+          <nav class="footer-links" aria-label="Footer navigation">
+            <a href="index.html">Home</a>
+            <a class="active" aria-current="page" href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+          <div class="footer-note">Made with clean HTML and fancy CSS.</div>
+        </div>
+      </div>
+    </footer>
   </main>
 
   <script>
