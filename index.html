@@ -226,6 +226,126 @@
     .project-tags { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 28px; }
     .project-tags span { padding: 9px 11px; border: 1px solid rgba(16, 24, 33, 0.12); border-radius: 999px; background: rgba(255, 255, 255, 0.72); font-size: 0.8rem; font-weight: 900; }
 
+
+
+    .project-card {
+      position: relative;
+      isolation: isolate;
+      padding: 30px;
+      border-color: rgba(16, 24, 33, 0.12);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.90), rgba(255, 255, 255, 0.56)),
+        radial-gradient(circle at 18% 15%, rgba(255, 107, 95, 0.20), transparent 34%),
+        radial-gradient(circle at 84% 4%, rgba(17, 166, 154, 0.16), transparent 30%);
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+    }
+
+    .project-card.featured {
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.54)),
+        radial-gradient(circle at 18% 16%, rgba(255, 107, 95, 0.26), transparent 34%),
+        radial-gradient(circle at 80% 14%, rgba(17, 166, 154, 0.24), transparent 33%),
+        radial-gradient(circle at 66% 90%, rgba(124, 77, 255, 0.22), transparent 38%);
+    }
+
+    .project-card::before {
+      right: -62px;
+      top: -62px;
+      width: 190px;
+      height: 190px;
+      filter: saturate(1.12);
+      transition: transform 240ms ease, opacity 240ms ease;
+    }
+
+    .project-card::after {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      z-index: -1;
+      border: 1px solid rgba(16, 24, 33, 0.09);
+      border-radius: 8px;
+      opacity: 0.72;
+      pointer-events: none;
+    }
+
+    .project-card:hover {
+      border-color: rgba(17, 166, 154, 0.30);
+      box-shadow: 0 34px 86px rgba(16, 24, 33, 0.17);
+      transform: translateY(-8px);
+    }
+
+    .project-card:hover::before {
+      opacity: 0.95;
+      transform: scale(1.18) rotate(20deg);
+    }
+
+    .project-card small {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      width: fit-content;
+      padding: 8px 11px;
+      border: 1px solid rgba(16, 24, 33, 0.10);
+      border-radius: 999px;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.66);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.86);
+    }
+
+    .project-card small::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--coral), var(--teal));
+      box-shadow: 0 0 0 5px rgba(17, 166, 154, 0.10);
+    }
+
+    .project-card h3 {
+      max-width: 330px;
+      margin-top: 28px;
+      font-size: clamp(1.6rem, 3vw, 2.7rem);
+      line-height: 0.98;
+    }
+
+    .project-card p {
+      max-width: 390px;
+      font-size: 0.98rem;
+    }
+
+    .project-card.featured h3 {
+      max-width: 460px;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+    }
+
+    .project-tags span {
+      border-color: rgba(16, 24, 33, 0.10);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.54)),
+        linear-gradient(135deg, rgba(248, 189, 53, 0.16), rgba(17, 166, 154, 0.12));
+      box-shadow: 0 8px 18px rgba(16, 24, 33, 0.07);
+    }
+
+    .project-glow {
+      position: absolute;
+      right: 26px;
+      bottom: 26px;
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.90), rgba(255, 255, 255, 0.38)),
+        linear-gradient(135deg, rgba(255, 107, 95, 0.34), rgba(17, 166, 154, 0.28), rgba(124, 77, 255, 0.30));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.90), 0 18px 36px rgba(16, 24, 33, 0.12);
+      transform: rotate(10deg);
+    }
+
+    .project-card.featured .project-glow {
+      width: 76px;
+      height: 76px;
+      border-radius: 20px;
+    }
+
     .process-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 16px; }
     .step-list { display: grid; gap: 14px; }
     .step { display: grid; grid-template-columns: auto 1fr; gap: 14px; align-items: start; padding: 18px; border: 1px solid rgba(16, 24, 33, 0.12); border-radius: 8px; background: rgba(255, 255, 255, 0.62); }
@@ -440,11 +560,11 @@
     <section class="section portfolio-band">
       <div class="section-heading"><h2>A home page with real website energy.</h2><p>Project-style cards add visual variety and show how the page can grow into a portfolio or business site.</p></div>
       <div class="project-grid">
-        <article class="project-card featured"><div><small>Featured style</small><h3>Creative personal website</h3><p>A bold front page with a sticky menu, polished cards, and smooth navigation to About and Contact.</p></div><div class="project-tags"><span>Hero</span><span>Navigation</span><span>Responsive</span><span>Fancy UI</span></div></article>
-        <article class="project-card"><div><small>Section</small><h3>Service blocks</h3><p>Clear cards explain what the site offers while keeping the design light and premium.</p></div><div class="project-tags"><span>Cards</span><span>Content</span></div></article>
-        <article class="project-card"><div><small>Section</small><h3>Contact path</h3><p>Strong calls to action guide visitors naturally toward the contact page.</p></div><div class="project-tags"><span>CTA</span><span>Flow</span></div></article>
-        <article class="project-card"><div><small>Detail</small><h3>Visual motion</h3><p>Animated washes, floating cards, and a scrolling text band add energy without clutter.</p></div><div class="project-tags"><span>Motion</span><span>Polish</span></div></article>
-        <article class="project-card"><div><small>Detail</small><h3>Wide layout</h3><p>Full-width bands make the page feel modern and spacious on larger screens.</p></div><div class="project-tags"><span>Full Width</span><span>Modern</span></div></article>
+        <article class="project-card featured"><span class="project-glow"></span><div><small>Featured style</small><h3>Creative personal website</h3><p>A bold front page with a sticky menu, polished cards, and smooth navigation to About and Contact.</p></div><div class="project-tags"><span>Hero</span><span>Navigation</span><span>Responsive</span><span>Fancy UI</span></div></article>
+        <article class="project-card"><span class="project-glow"></span><div><small>Section</small><h3>Service blocks</h3><p>Clear cards explain what the site offers while keeping the design light and premium.</p></div><div class="project-tags"><span>Cards</span><span>Content</span></div></article>
+        <article class="project-card"><span class="project-glow"></span><div><small>Section</small><h3>Contact path</h3><p>Strong calls to action guide visitors naturally toward the contact page.</p></div><div class="project-tags"><span>CTA</span><span>Flow</span></div></article>
+        <article class="project-card"><span class="project-glow"></span><div><small>Detail</small><h3>Visual motion</h3><p>Animated washes, floating cards, and a scrolling text band add energy without clutter.</p></div><div class="project-tags"><span>Motion</span><span>Polish</span></div></article>
+        <article class="project-card"><span class="project-glow"></span><div><small>Detail</small><h3>Wide layout</h3><p>Full-width bands make the page feel modern and spacious on larger screens.</p></div><div class="project-tags"><span>Full Width</span><span>Modern</span></div></article>
       </div>
     </section>
 
