@@ -108,6 +108,207 @@
     .float-card.two { right: 0; bottom: 12%; animation-delay: -2.5s; }
     .float-card.three { right: 8%; top: 2%; background: rgba(255, 255, 255, 0.88); animation-delay: -4s; }
 
+
+
+    .hero-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      inset: clamp(18px, 3vw, 34px) max(24px, calc((100vw - 1160px) / 2 + 24px));
+      z-index: -1;
+      border: 1px solid rgba(16, 24, 33, 0.10);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.48), rgba(255, 255, 255, 0.20)),
+        radial-gradient(circle at 18% 20%, rgba(255, 107, 95, 0.16), transparent 30%),
+        radial-gradient(circle at 78% 18%, rgba(17, 166, 154, 0.16), transparent 30%);
+      box-shadow: 0 34px 110px rgba(16, 24, 33, 0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-section::after {
+      content: "";
+      position: absolute;
+      right: max(24px, calc((100vw - 1160px) / 2 - 20px));
+      top: 12%;
+      z-index: -1;
+      width: min(34vw, 430px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: conic-gradient(from 120deg, rgba(255, 107, 95, 0.24), rgba(248, 189, 53, 0.24), rgba(17, 166, 154, 0.20), rgba(124, 77, 255, 0.22), rgba(255, 107, 95, 0.24));
+      filter: blur(8px);
+      opacity: 0.82;
+      animation: heroSpin 18s linear infinite;
+    }
+
+    .hero-grid {
+      position: relative;
+      padding: clamp(18px, 3vw, 34px) 0;
+    }
+
+    .hero-kicker {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .hero-kicker span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 12px;
+      border: 1px solid rgba(16, 24, 33, 0.12);
+      border-radius: 999px;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 900;
+      background: rgba(255, 255, 255, 0.66);
+      box-shadow: 0 10px 24px rgba(16, 24, 33, 0.07);
+      backdrop-filter: blur(14px);
+    }
+
+    .hero-art::before {
+      content: "";
+      position: absolute;
+      width: min(88%, 470px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 1px solid rgba(16, 24, 33, 0.12);
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.10)),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.34) 0 10px, rgba(17, 166, 154, 0.08) 10px 20px);
+      animation: heroOrbit 12s ease-in-out infinite;
+    }
+
+    .showcase-card {
+      transform: rotate(-2deg);
+      transition: transform 260ms ease, box-shadow 260ms ease;
+    }
+
+    .showcase-card:hover {
+      transform: rotate(0deg) translateY(-8px);
+      box-shadow: 0 46px 100px rgba(16, 24, 33, 0.24);
+    }
+
+    .showcase-card::after {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px dashed rgba(16, 24, 33, 0.18);
+      border-radius: 8px;
+    }
+
+    .showcase-content {
+      z-index: 1;
+    }
+
+    .hero-metric {
+      position: absolute;
+      left: 26px;
+      bottom: 26px;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: center;
+      max-width: 250px;
+      padding: 14px;
+      border: 1px solid rgba(16, 24, 33, 0.12);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.74);
+      box-shadow: 0 18px 42px rgba(16, 24, 33, 0.13);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero-metric b {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--teal), var(--blue));
+    }
+
+    .hero-metric strong,
+    .hero-metric span {
+      display: block;
+    }
+
+    .hero-metric span {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+
+    .button.primary-glow {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .button.primary-glow::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 0 35%, rgba(255, 255, 255, 0.36) 48%, transparent 62% 100%);
+      transform: translateX(-120%);
+      transition: transform 520ms ease;
+    }
+
+    .button.primary-glow:hover::after {
+      transform: translateX(120%);
+    }
+
+    @keyframes heroSpin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes heroOrbit {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-18px) rotate(10deg); }
+    }
+
+
+
+    .hero-section {
+      padding-left: max(34px, calc((100vw - 1240px) / 2 + 54px));
+      padding-right: max(34px, calc((100vw - 1240px) / 2 + 54px));
+    }
+
+    .hero-grid {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding-left: clamp(12px, 2.2vw, 32px);
+      padding-right: clamp(12px, 2.2vw, 32px);
+    }
+
+    .hero-grid > div:first-child {
+      padding-left: clamp(0px, 1.6vw, 22px);
+    }
+
+    .hero-art {
+      padding-right: clamp(0px, 1.8vw, 26px);
+    }
+
+    .hero-section::before {
+      inset: clamp(18px, 3vw, 34px) max(34px, calc((100vw - 1240px) / 2 + 34px));
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.58), rgba(255, 255, 255, 0.24)),
+        radial-gradient(circle at 18% 20%, rgba(255, 107, 95, 0.18), transparent 30%),
+        radial-gradient(circle at 78% 18%, rgba(17, 166, 154, 0.18), transparent 30%),
+        radial-gradient(circle at 50% 92%, rgba(248, 189, 53, 0.16), transparent 34%);
+    }
+
+    .hero-section .lead {
+      max-width: 700px;
+    }
+
     .stats-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: rgba(16, 24, 33, 0.12); box-shadow: 0 24px 70px rgba(16, 24, 33, 0.10); }
     .stats-strip div { min-height: 132px; padding: 24px; background: rgba(255, 255, 255, 0.72); backdrop-filter: blur(18px); }
     .stats-strip strong { display: block; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1; }
@@ -481,6 +682,21 @@
       .page { padding: 22px; }
       .site-header { width: 100vw; margin: -22px calc(50% - 50vw) 22px; padding: 12px 22px; }
       .hero-grid, .process-grid, .cta-panel, .project-grid { grid-template-columns: 1fr; }
+
+      .hero-section {
+        padding-left: 26px;
+        padding-right: 26px;
+      }
+
+      .hero-grid {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .hero-section::before {
+        left: 18px;
+        right: 18px;
+      }
       .hero-section { min-height: auto; }
       .hero-art { order: -1; min-height: 390px; }
       .features, .stats-strip { grid-template-columns: 1fr; }
@@ -499,6 +715,11 @@
       .hero-art { min-height: 310px; }
       .float-card { display: none; }
       .section { padding-left: 22px; padding-right: 22px; }
+
+      .hero-section {
+        padding-left: 22px;
+        padding-right: 22px;
+      }
     }
   </style>
 </head>
@@ -525,8 +746,9 @@
           <p class="eyebrow">Creative web presence</p>
           <h1>Deep <span>Narayan</span></h1>
           <p class="lead">A bright and polished home page for modern web ideas. Built with bold typography, full-width sections, smooth motion, and clean content that makes the first visit feel memorable.</p>
+          <div class="hero-kicker" aria-label="Hero highlights"><span>Full-width design</span><span>Fancy CSS motion</span><span>Clean page flow</span></div>
           <div class="actions">
-            <a class="button" href="about.html">Explore About</a>
+            <a class="button primary-glow" href="about.html">Explore About</a>
             <a class="button secondary" href="contact.html">Contact Me</a>
           </div>
         </div>
@@ -534,7 +756,7 @@
           <div class="float-card one"><strong>Responsive</strong><span>Designed for every screen size.</span></div>
           <div class="float-card two"><strong>Fancy</strong><span>Color, motion, and visual depth.</span></div>
           <div class="float-card three"><strong>Clean</strong><span>Simple structure with premium polish.</span></div>
-          <div class="showcase-card"><div class="showcase-content"><h2>Modern pages with personality.</h2><p>From first impression to final click, every section is shaped to feel smooth, clear, and confident.</p></div></div>
+          <div class="showcase-card"><div class="hero-metric"><b>+</b><div><strong>Premium feel</strong><span>Layered, animated, responsive.</span></div></div><div class="showcase-content"><h2>Modern pages with personality.</h2><p>From first impression to final click, every section is shaped to feel smooth, clear, and confident.</p></div></div>
         </div>
       </div>
     </section>
