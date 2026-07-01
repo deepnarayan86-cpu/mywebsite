@@ -64,8 +64,28 @@
       /* border-radius: 999px; 
       background: linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.52)), linear-gradient(135deg, rgba(255, 107, 95, 0.12), rgba(17, 166, 154, 0.12), rgba(124, 77, 255, 0.12));  */
     }
-    .main-nav a { position: relative; z-index: 1; display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 0 18px; border-radius: 999px; color: var(--muted); font-size: 0.92rem; font-weight: 950; text-decoration: none; overflow: hidden; transition: color 180ms ease, transform 180ms ease, min-height 220ms ease; }
-    .main-nav a::before { content: ""; position: absolute; inset: 5px; z-index: -1; border-radius: inherit; background: rgba(255, 255, 255, 0.72); opacity: 0; transform: scale(0.78); transition: opacity 180ms ease, transform 180ms ease; }
+    .main-nav a { 
+      position: relative; 
+      z-index: 1; 
+      display: inline-flex; 
+      align-items: center; 
+      justify-content: center; 
+      min-height: 42px; 
+      padding: 0 18px; 
+      border-radius: 999px; 
+      color: var(--muted); 
+      font-size: 0.92rem; 
+      font-weight: 950; text-decoration: none; 
+      overflow: hidden; transition: color 180ms ease, transform 180ms ease, min-height 220ms ease; 
+    }
+    .main-nav a::before { 
+      content: ""; position:absolute; inset:5px; 
+      z-index: -1; 
+      border-radius:inherit; 
+      /* background: rgba(255, 255, 255, 0.72);  */
+      opacity: 0; transform: scale(0.78); 
+      transition: opacity 180ms ease, transform 180ms ease;
+     }
     .main-nav a::after { content: ""; position: absolute; left: 50%; bottom: 7px; width: 18px; height: 3px; border-radius: 999px; background: linear-gradient(90deg, var(--coral), var(--gold), var(--teal)); opacity: 0; transform: translateX(-50%) scaleX(0.35); transition: opacity 180ms ease, transform 180ms ease; }
     .main-nav a:hover { color: var(--ink); transform: translateY(-2px); }
     .main-nav a:hover::before, .main-nav a.active::before { opacity: 1; transform: scale(1); }
